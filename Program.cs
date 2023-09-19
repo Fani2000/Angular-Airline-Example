@@ -12,17 +12,18 @@ builder.Services.AddSwaggerGen(c =>
         Description = "Development Server",
         Url = "https://localhost:7217"
     });
+
+    c.CustomOperationIds(e => $"{e.ActionDescriptor.RouteValues["action"] + e.ActionDescriptor.RouteValues["controller"]}");
 });
 
 var app = builder.Build();
 
+app.UseCors(builder => builder.WithOrigins("*"));
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
