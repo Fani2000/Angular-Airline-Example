@@ -1,1 +1,57 @@
-<p>search-flights works!</p>
+<h5 class="text-md-center m-5">Search for Flights</h5>
+
+<div class="m-5 d-grid gap-3">
+  <!-- FROM + DESTINATION  -->
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <input type="text" placeholder="From" class="form-control" />
+        <label class="form-label text-primary">From</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-floating">
+        <input type="text" placeholder="Destination" class="form-control" />
+        <label class="form-label text-primary">Destination</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATE -->
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="From Date" class="form-control" />
+        <label class="form-label text-primary">From Date</label>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="To Date" class="form-control" />
+        <label class="form-label text-primary">To Date</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Buttons -->
+  <div class="row">
+    <div class="col text-end">
+      <label class="form-label text-primary mt-2">Number Of Passengers</label>
+    </div>
+    <div class="col">
+      <div class="input-group">
+        <div class="input-group-text">For</div>
+        <input type="number" placeholder="1" class="form-control" />
+        <div class="input-group-text">Passengers</div>
+
+        <button type="submit" class="btn-primary btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let flight of searchResults">
+  {{ flight }}
+</div>
