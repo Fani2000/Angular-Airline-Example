@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
 import { BookFlightComponent } from './book-flight/book-flight.component';
+import { RegisterPassengerComponent } from './register-passenger/register-passenger.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,13 @@ import { BookFlightComponent } from './book-flight/book-flight.component';
     HomeComponent,
     SearchFlightsComponent,
     BookFlightComponent,
+    RegisterPassengerComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       {
@@ -31,6 +34,10 @@ import { BookFlightComponent } from './book-flight/book-flight.component';
       {
         path: 'book-flight/:flightId',
         component: BookFlightComponent,
+      },
+      {
+        path: 'register-passenger',
+        component: RegisterPassengerComponent,
       },
     ]),
   ],
